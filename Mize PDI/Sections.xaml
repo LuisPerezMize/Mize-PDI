@@ -1,0 +1,74 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerikPrimitives="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives"
+    x:Class="Mize_PDI.Sections"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+	<phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="InsideExpanderDataTemplate" x:Name="InsideExpanderDataTemplate">
+			<Grid Height="50">
+						<TextBlock TextWrapping="Wrap" Text="{Binding SubCategory}" VerticalAlignment="Center" Foreground="#FF0C0B0B" Margin="20,0,0,0" FontSize="22.667" HorizontalAlignment="Left"/>
+						<Border BorderBrush="#FF878080" BorderThickness="0,0,0,1" Height="50" VerticalAlignment="Bottom"/>
+						<StackPanel Margin="430,0,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
+							<Image x:Name="StatusImage" Width="30" Height="30" Source="/Assets/icon_check.png"/>
+							<Image x:Name="Next" HorizontalAlignment="Right" Height="50" VerticalAlignment="Top" Width="50" Margin="0"/>
+						</StackPanel>
+					</Grid>
+		</DataTemplate>
+        <DataTemplate x:Key="NameSectionDatatemplate" x:Name="NameSectionDatatemplate">
+			<Grid Background="#FFE1E1E1">
+				<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding Category}" VerticalAlignment="Center" Foreground="#FF1558B8" Padding="2,0,0,0" FontSize="24" Margin="15,0,0,0"/>
+				<TextBlock HorizontalAlignment="Right" TextWrapping="Wrap" Text="{Binding TotalSubCategory}" VerticalAlignment="Center" Foreground="#FF1763BD" FontWeight="Bold" Margin="0,0,10,0" FontSize="24"/>
+			</Grid>
+		</DataTemplate>
+		<DataTemplate x:Key="DataTemplate1">
+			<Grid Height="41" Width="48" Background="#FFE1E1E1">
+				<Image Stretch="None" Source="/Telerik.Windows.Controls.Primitives;Component/ExpanderControl/Images/Arrow.png"/>
+			</Grid>
+		</DataTemplate>
+		<DataTemplate x:Key="ExpanderDataList"/>
+	</phone:PhoneApplicationPage.Resources>
+	<phone:PhoneApplicationPage.ApplicationBar>
+		<shell:ApplicationBar BackgroundColor="#FF1558B8" ForegroundColor="White">
+			<shell:ApplicationBarIconButton x:Name="HomeAppBarIcon" IconUri="/Assets/AppBar/tab_icon_home.png" Text="home"/>
+			<shell:ApplicationBarIconButton x:Name="InboxAppBarIcon" IconUri="/Assets/AppBar/tab_icon_inbox.png" Text="inbox"/>
+			<shell:ApplicationBarIconButton x:Name="SearchAppBarIcon" IconUri="/Assets/AppBar/tab_icon_search.png" Text="search"/>
+			<shell:ApplicationBarIconButton x:Name="DonwloadsAppBarIcon" IconUri="/Assets/AppBar/tab_icon_downloads.png" Text="Downloads"/>
+		</shell:ApplicationBar>
+	</phone:PhoneApplicationPage.ApplicationBar>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+	<Grid x:Name="LayoutRoot">
+		<Grid.Background>
+			<ImageBrush Stretch="Fill" ImageSource="/Assets/Login/BackgroundLogin.png"/>
+		</Grid.Background>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<!--TitlePanel contains the name of the application and page title-->
+
+		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="0">
+			<StackPanel x:Name="ExpanderListstackPanel"/>
+			
+           
+		</Grid>
+		<Grid Height="60" Grid.RowSpan="2" VerticalAlignment="Top" Background="#FFE8E8E8">
+			<TextBlock x:Name="InspectionNumberTextBlock" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FF1764BE" FontSize="40" FontFamily="Segoe WP Light" Margin="20,0,0,0"/>
+		</Grid>
+		<Grid Height="60" VerticalAlignment="Top" Margin="0,60,0,0" Background="#FFF6F5F6">
+			<ProgressBar Height="10" VerticalAlignment="Top"/>
+		</Grid>
+	</Grid>
+
+</phone:PhoneApplicationPage>
