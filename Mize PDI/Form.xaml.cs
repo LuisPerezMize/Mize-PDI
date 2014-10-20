@@ -23,7 +23,7 @@ namespace Mize_PDI
 
             var info = App.SelectedSection;
 
-
+            FormListSelector.ItemsSource = new Engine.FormEngine().GetRenderData(info.Fields);
             //var List = new List<Models.RenderModel>();
 
             //List.Add(new Models.RenderModel()

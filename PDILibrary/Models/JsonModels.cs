@@ -440,29 +440,20 @@ namespace PDILibrary.Model
         [DataMember(Name = "id")]
         public int id { get; set; }
 
-        [DataMember(Name = "field_number")]
-        public string field_number { get; set; }
+        [DataMember(Name = "label")]
+        public label label { get; set; }
 
-        [DataMember(Name = "fieldType")]
-        public string fieldType { get; set; }
-
-        [DataMember(Name = "fieldLabel")]
-        public string fieldLabel { get; set; }
+        [DataMember(Name = "type")]
+        public string type { get; set; }
 
         [DataMember(Name = "sameRow")]
         public string sameRow { get; set; }
 
-        [DataMember(Name = "required")]
-        public bool required { get; set; }
+        [DataMember(Name = "attrs")]
+        public List<attrs> attrs { get; set; }
 
-        [DataMember(Name = "fieldValue")]
-        public string fieldValue { get; set; }
-
-        [DataMember(Name = "fieldNotes")]
-        public string fieldNotes { get; set; }
-
-        [DataMember(Name = "placeHolder")]
-        public string placeHolder { get; set; }
+        [DataMember(Name = "attachments")]
+        public List<attachments> attachments { get; set; }
     }
 
     public class SectionForm
@@ -489,4 +480,21 @@ namespace PDILibrary.Model
         public List<intl> intl { get; set; }
     }
 
+    public class attrs
+    {
+        [DataMember(Name = "name")]
+        public string name { get; set; }
+
+        [DataMember(Name = "value")]
+        public string value { get; set; }
+    }
+
+    public class attachments
+    {
+        [DataMember(Name = "name")]
+        public string name { get; set; }
+
+        [DataMember(Name = "url")]
+        public string url { get; set; }
+    }
 }

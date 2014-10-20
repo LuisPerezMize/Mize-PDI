@@ -441,15 +441,15 @@
 				</Setter.Value>
 			</Setter>
 		</Style>
-		<DataTemplate x:Key="FormDataTemplate">
-			<Grid Margin="15,0,0,10" d:DesignHeight="893.5" MinWidth="440">
-				<StackPanel Margin="0">
-					<TextBlock TextWrapping="Wrap" Text="{Binding QuestionText}" VerticalAlignment="Top" Foreground="Black" FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Left"/>
+        <DataTemplate x:Key="FormDataTemplate">
+            <Grid Margin="15,0,0,10" d:DesignHeight="893.5" MinWidth="440">
+                <StackPanel Margin="0">
+                    <Border BorderBrush="#FF7A7A7A" BorderThickness="0,0,0,1" Margin="-15,0,0,0" Visibility="{Binding DisplaySameRow}"/>
 					<telerikPrimitives:RadWrapPanel x:Name="ComboBoxGrid" Margin="15,0,0,10" Visibility="{Binding ComboBoxGrid}">
 						<telerikInput:RadListPicker x:Name="SelectionListPicker" Margin="0" ItemsSource="{Binding ListPickerItemSource}" InlineModeThreshold="-1" IsExpanded="False" BorderBrush="#FF757575" Foreground="#FF121111" FontSize="21.333" MinWidth="400"/>
 					</telerikPrimitives:RadWrapPanel>
 					<telerikPrimitives:RadWrapPanel x:Name="CheckBoxGrid" Margin="15,0,0,10" Visibility="{Binding CheckBoxGrid}">
-						<CheckBox  HorizontalAlignment="Left" Width="165" Margin="0,0,10,0" BorderBrush="#FFBEBEBE" Foreground="#FF131212" Style="{StaticResource CheckBoxStyle1}" Content="{Binding CheckBoxContent}" />
+						<CheckBox  HorizontalAlignment="Left" Width="300" Margin="0,0,10,0" BorderBrush="#FFBEBEBE" Foreground="#FF131212" Style="{StaticResource CheckBoxStyle1}" Content="{Binding CheckBoxContent}" />
 					</telerikPrimitives:RadWrapPanel>
 					<Grid x:Name="NoteGrid" Margin="0,0,0,10" Visibility="{Binding NoteGrid}">
 						<StackPanel Margin="0">
@@ -474,12 +474,14 @@
 						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Attach File" VerticalAlignment="Top" Foreground="#FF7A7A7A" Margin="15,10,0,10"/>
 						<StackPanel Margin="15,50,0,12" Orientation="Horizontal">
 							<telerikPrimitives:RadImageButton x:Name="AttachFileImageButton" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" ButtonType="Custom" ButtonShape="Image" ImageStretch="UniformToFill" RestStateImageSource="/Assets/icon_saved_search@2x.png" Width="60" Foreground="#FF090404"/>
-							<TextBlock x:Name="FileNameTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding FileNameTextBlock}"/>
+                            <TextBlock x:Name="FileNameTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding FileNameTextBlock}" Foreground="Black"/>
 						</StackPanel>
 					</Grid>
-				</StackPanel>
-				<Border BorderBrush="#FF7A7A7A" BorderThickness="0,0,0,1" Margin="-15,0,0,0"/>
-			</Grid>
+                    <Grid x:Name="LabelGrid" Visibility="{Binding LabelGrid}">
+                        <TextBlock TextWrapping="Wrap" Text="{Binding QuestionText}" VerticalAlignment="Top" Foreground="Black" FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Left"/>
+                    </Grid>
+                </StackPanel>
+            </Grid>
 		</DataTemplate>
 	</phone:PhoneApplicationPage.Resources>
 	<phone:PhoneApplicationPage.ApplicationBar>

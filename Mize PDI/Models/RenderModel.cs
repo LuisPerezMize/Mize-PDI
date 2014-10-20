@@ -18,11 +18,14 @@ namespace Mize_PDI.Models
         public Visibility TimeGrid { get; set; }
         public Visibility DateGrid { get; set; }
         public Visibility FileGrid { get; set; }
+        public Visibility LabelGrid { get; set; }
+        public Visibility DisplaySameRow { get; set; }
         public string FileNameTextBlock { get; set; }
         public DateTime TimeValue { get; set; }
         public DateTime DateValue { get; set; }
         public List<string> ListPickerItemSource { get; set; }
         public string CommentTitle { get; set; }
+        public string CheckBoxContent { get; set; }
     }
 
     public class SearchModel
