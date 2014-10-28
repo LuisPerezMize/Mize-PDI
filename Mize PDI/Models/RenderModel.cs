@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Mize_PDI.Models
 {
@@ -26,6 +27,7 @@ namespace Mize_PDI.Models
         public List<string> ListPickerItemSource { get; set; }
         public string CommentTitle { get; set; }
         public string CheckBoxContent { get; set; }
+        public string ComboBoxLabel { get; set; }
     }
 
     public class SearchModel
@@ -44,6 +46,7 @@ namespace Mize_PDI.Models
         public string InspectionNumber { get; set; }
         public string MasterID { get; set; }
         public SolidColorBrush StatusColor { get; set; }
+        public BitmapImage CloudIcon { get; set; }
     }
 
     public class ExpanderModel

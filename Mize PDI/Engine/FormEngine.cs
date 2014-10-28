@@ -8,7 +8,7 @@ namespace Mize_PDI.Engine
 {
     class FormEngine
     {
-        public List<Models.RenderModel> GetRenderData(List<PDILibrary.Model.fields> fields)
+        public async Task<List<Models.RenderModel>> GetRenderData(List<PDILibrary.Model.fields> fields)
         {
             var result = new List<Models.RenderModel>();
 
@@ -46,7 +46,7 @@ namespace Mize_PDI.Engine
                             DisplaySameRow = DisplayRow(item.sameRow),
                             LabelGrid = System.Windows.Visibility.Collapsed,
                             CommentGrid = System.Windows.Visibility.Collapsed,
-                            CheckBoxGrid = System.Windows.Visibility.Visible,
+                            CheckBoxGrid = System.Windows.Visibility.Collapsed,
                             DateGrid = System.Windows.Visibility.Collapsed,
                             FileGrid = System.Windows.Visibility.Visible,
                             FileNameTextBlock = GetAttachmentName(item.attachments),
@@ -64,13 +64,15 @@ namespace Mize_PDI.Engine
                             DisplaySameRow = DisplayRow(item.sameRow),
                             LabelGrid = System.Windows.Visibility.Collapsed,
                             CommentGrid = System.Windows.Visibility.Collapsed,
-                            CheckBoxGrid = System.Windows.Visibility.Visible,
+                            CheckBoxGrid = System.Windows.Visibility.Collapsed,
                             DateGrid = System.Windows.Visibility.Collapsed,
                             FileGrid = System.Windows.Visibility.Collapsed,
                             FileNameTextBlock = string.Empty,
+                            ComboBoxLabel = item.label.intl[0].name,
                             NoteGrid = System.Windows.Visibility.Collapsed,
                             ComboBoxGrid = System.Windows.Visibility.Visible,
-                            ListPickerItemSource = new List<string>() { "Engine not working", "Low oil level", "Need repair" },
+                            //ListPickerItemSource = new List<string>() { "Engine not working", "Low oil level", "Need repair" },
+                            ListPickerItemSource = await new PDILibrary.Network.NetworkCalls().GetCatalogItems(item.label.intl[0].name),
                             TimeGrid = System.Windows.Visibility.Collapsed,
                             CheckBoxContent = item.label.intl[0].name,
                         });

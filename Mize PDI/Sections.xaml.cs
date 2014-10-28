@@ -29,23 +29,23 @@ namespace Mize_PDI
         private async void GetData(string ID)
         {
             ExpanderListstackPanel.Children.Clear();
-            var InspectionData = await new PDILibrary.Network.NetworkCalls().GetInspection(ID);
+            App.InspectionData = await new PDILibrary.Network.NetworkCalls().GetInspection(ID);
 
-            if (InspectionData != null)
+            if (App.InspectionData != null)
             {
+                App.FormID = new List<PDILibrary.Model.sections>();
                 int Count = 0;
 
-                if (InspectionData.items.Count > 0)
-                foreach (var item in InspectionData.items[0].formInstance.formDefinition.form.sectionGroups)
+                if (App.InspectionData.items.Count > 0)
+                foreach (var item in App.InspectionData.items[0].formInstance.formDefinition.form.sectionGroups)
                 {
                     Count++;
-                    var ExpanderData = GetExpander(item, Count, InspectionData.items[0].formInstance.formDefinition.form.sectionGroups.Count);
+                    var ExpanderData = GetExpander(item, Count, App.InspectionData.items[0].formInstance.formDefinition.form.sectionGroups.Count);
                     ExpanderListstackPanel.Children.Add(ExpanderData);
+
+                    foreach (var Data in item.sections)
+                        App.FormID.Add(Data);
                 }
-                //InspectionData.items[0].formInstance.formDefinition.form.sectionGroups[0]
-                //for (int i = 0; i < ExpanderData.sectiongroups.Count; i++)
-                //    ExpanderListstackPanel.Children.Add(GetExpander(ExpanderData.sectiongroups[i], (i + 1), ExpanderData.sectiongroups.Count));
-                
             }
         }
 
@@ -76,7 +76,9 @@ namespace Mize_PDI
             {
                 var Item = sender as LongListSelector;
                 var SelectedItem = Item.SelectedItem as Models.InsiderExpanderModel;
+                
                 App.SelectedSection = SelectedItem;
+                App.SelectedIndex = new Engine.CommonEngine().GetIndexOfSectionCollection(SelectedItem.ID);
 
                 NavigationService.Navigate(new Uri(string.Format("/Form.xaml?id={0}", SelectedItem.ID), UriKind.Relative));
                 List.SelectedItem = null;

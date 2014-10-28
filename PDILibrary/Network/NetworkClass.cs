@@ -23,6 +23,21 @@ namespace PDILibrary.Network
             this.RootURL = "http://cctest.m-ize.com";
         }
 
+        private HttpClient WebClient(string URL)
+        {
+            var cookieContainer = new CookieContainer();
+
+            cookieContainer.Add(new Uri(URL), new Cookie("PLAY_SESSION", Cookie));
+
+            var handler = new HttpClientHandler() { CookieContainer = cookieContainer };
+
+            var Client = new HttpClient(handler);
+
+            Client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+            return Client;
+        }
+
         public async Task<Model.signin> DoLoginCall(string Username, string Password)
         {
             var result = new Model.signin();
@@ -62,17 +77,9 @@ namespace PDILibrary.Network
 
             string URL = string.Format("{0}/generic/searchResults?pageIndex=0", RootURL);
 
-            var cookieContainer = new CookieContainer();
- 
-            cookieContainer.Add(new Uri(URL), new Cookie("PLAY_SESSION", Cookie));
-            
-            var handler = new HttpClientHandler() { CookieContainer = cookieContainer };
-
-            var client = new HttpClient(handler);
+            var client = WebClient(URL);
 
             Post = new Engine.GetJsonString().GetSearchJsonPost();
-
-            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
 
             var response = await client.PostAsync(URL, new StringContent(Post, System.Text.Encoding.UTF8, "application/json"));
 
@@ -92,13 +99,7 @@ namespace PDILibrary.Network
 
             string URL = string.Format("{0}/inspectionForm?id={1}", RootURL, InspectionID);
 
-            var cookieContainer = new CookieContainer();
-
-            cookieContainer.Add(new Uri(URL), new Cookie("PLAY_SESSION", Cookie));
-
-            var handler = new HttpClientHandler() { CookieContainer = cookieContainer };
-
-            var client = new HttpClient(handler);
+            var client = WebClient(URL);
 
             try
             {
@@ -112,6 +113,29 @@ namespace PDILibrary.Network
             {
                 System.Diagnostics.Debug.WriteLine(error.Message);
                 return null;
+            }
+        }
+
+        public async Task<List<string>> GetCatalogItems(string CatalogName)
+        {
+            var data = new List<string>();
+
+            string URL = string.Format("{0}/catalog/cache/retrieve?catalogName={1}", RootURL, "Cause");
+
+            var client = WebClient(URL);
+
+            try
+            {
+                var result = await client.GetStringAsync(URL);
+
+                //var data = Newtonsoft.Json.JsonConvert.DeserializeObject<Model.retrieve>(result);
+
+                return data;
+            }
+            catch (Exception error)
+            {
+                System.Diagnostics.Debug.WriteLine(error.Message);
+                return new List<string>() { "Item1", "Item2", "Item3" };
             }
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Mize_PDI.Engine
 {
@@ -24,6 +25,7 @@ namespace Mize_PDI.Engine
             string master_Id = string.Empty;
             string master_UpdatedDate = string.Empty;
             string master_UpdatedByName = string.Empty;
+            BitmapImage CloudImage = new BitmapImage();
 
             foreach (var item in Data.items)
             {
@@ -64,6 +66,12 @@ namespace Mize_PDI.Engine
                         master_Id = value.value;
                 }
 
+                if (string.Equals("draft", master_InspectionStatusName.ToLowerInvariant()))
+                    CloudImage.UriSource = new Uri("/Assets/cloud-download.png", UriKind.Relative);
+
+                if (string.Equals("completed", master_InspectionStatusName.ToLowerInvariant()))
+                    CloudImage.UriSource = new Uri("/Assets/cloud-sync.png", UriKind.Relative);
+
                 result.Add(new Models.SearchModel()
                     {
                         Model = equipment_equipmentModel,
@@ -77,6 +85,7 @@ namespace Mize_PDI.Engine
                         FormType = master_InspectionTypeName,
                         StatusColor = GetStatusColor(master_InspectionStatusName),
                         ModifyDate = master_UpdatedDate,
+                        CloudIcon = CloudImage
                     });
             }
 

@@ -442,44 +442,45 @@
 			</Setter>
 		</Style>
         <DataTemplate x:Key="FormDataTemplate">
-            <Grid Margin="15,0,0,10" d:DesignHeight="893.5" MinWidth="440">
+            <Grid Margin="0" d:DesignHeight="893.5" MinWidth="440" Background="White">
                 <StackPanel Margin="0">
-                    <Border BorderBrush="#FF7A7A7A" BorderThickness="0,0,0,1" Margin="-15,0,0,0" Visibility="{Binding DisplaySameRow}"/>
-					<telerikPrimitives:RadWrapPanel x:Name="ComboBoxGrid" Margin="15,0,0,10" Visibility="{Binding ComboBoxGrid}">
-						<telerikInput:RadListPicker x:Name="SelectionListPicker" Margin="0" ItemsSource="{Binding ListPickerItemSource}" InlineModeThreshold="-1" IsExpanded="False" BorderBrush="#FF757575" Foreground="#FF121111" FontSize="21.333" MinWidth="400"/>
-					</telerikPrimitives:RadWrapPanel>
-					<telerikPrimitives:RadWrapPanel x:Name="CheckBoxGrid" Margin="15,0,0,10" Visibility="{Binding CheckBoxGrid}">
-						<CheckBox  HorizontalAlignment="Left" Width="300" Margin="0,0,10,0" BorderBrush="#FFBEBEBE" Foreground="#FF131212" Style="{StaticResource CheckBoxStyle1}" Content="{Binding CheckBoxContent}" />
-					</telerikPrimitives:RadWrapPanel>
-					<Grid x:Name="NoteGrid" Margin="0,0,0,10" Visibility="{Binding NoteGrid}">
-						<StackPanel Margin="0">
-							<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Note" VerticalAlignment="Top" FontSize="21.333" Foreground="#FF8D8D8D" Margin="15,0,0,0"/>
-							<TextBox TextWrapping="Wrap" BorderBrush="#FF8D8D8D" SelectionForeground="White" FontSize="21.333"/>
-							<TextBlock x:Name="ErrormessageTextBlock" TextWrapping="Wrap" Text="{Binding ErrorMessageTextBlock}" Foreground="#FFB7251C" FontSize="21.333" Margin="15,0,0,0"/>
-						</StackPanel>
-					</Grid>
-					<Grid x:Name="CommentGrid" Visibility="{Binding CommentGrid}">
-						<StackPanel>
-							<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding CommentTitle}" VerticalAlignment="Top" FontSize="21.333" Foreground="#FF8D8D8D" Margin="15,0,0,0"/>
-							<telerikPrimitives:RadTextBox TextWrapping="Wrap" FontSize="21.333" Height="109" BorderBrush="#FF8D8D8D"/>
-						</StackPanel>
-					</Grid>
-					<Grid x:Name="TimeGrid" Margin="0,0,0,10" Visibility="{Binding TimeGrid}">
-						<telerikInput:RadTimePicker x:Name="TimeTimerPicker" VerticalAlignment="Stretch" EmptyContent="" Header="Select Time" Height="110" Foreground="#FF0A0A0A" BorderBrush="#FF757575" Background="#FFCACACA" Style="{StaticResource RadTimePickerStyle1}" Value="{Binding TimeValue}"/>
-					</Grid>
-					<Grid x:Name="DateGrid" Visibility="{Binding DateGrid}">
-						<telerikInput:RadDatePicker VerticalAlignment="Stretch" Header="Select Date" FontSize="21.333" EmptyContent="" Foreground="#FF0C0B0B" BorderBrush="#FF757575" Style="{StaticResource RadDatePickerStyle1}" Height="110" Value="{Binding DateValue}"/>
-					</Grid>
-					<Grid x:Name="FileGrid" Visibility="{Binding FileGrid}">
-						<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Attach File" VerticalAlignment="Top" Foreground="#FF7A7A7A" Margin="15,10,0,10"/>
-						<StackPanel Margin="15,50,0,12" Orientation="Horizontal">
-							<telerikPrimitives:RadImageButton x:Name="AttachFileImageButton" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" ButtonType="Custom" ButtonShape="Image" ImageStretch="UniformToFill" RestStateImageSource="/Assets/icon_saved_search@2x.png" Width="60" Foreground="#FF090404"/>
-                            <TextBlock x:Name="FileNameTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding FileNameTextBlock}" Foreground="Black"/>
-						</StackPanel>
-					</Grid>
-                    <Grid x:Name="LabelGrid" Visibility="{Binding LabelGrid}">
-                        <TextBlock TextWrapping="Wrap" Text="{Binding QuestionText}" VerticalAlignment="Top" Foreground="Black" FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Left"/>
-                    </Grid>
+					<Border BorderBrush="#FFE2DFDF" BorderThickness="0,0,0,15" Margin="0,0,0,0" Visibility="{Binding DisplaySameRow}"/>
+                	<telerikPrimitives:RadWrapPanel x:Name="ComboBoxGrid" Margin="15,0,0,10" Visibility="{Binding ComboBoxGrid}">
+                		<TextBlock TextWrapping="Wrap" Text="{Binding ComboBoxLabel}" VerticalAlignment="Top" Foreground="Black" FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Left"/>
+                		<telerikInput:RadListPicker x:Name="SelectionListPicker" Margin="0" ItemsSource="{Binding ListPickerItemSource}" InlineModeThreshold="-1" IsExpanded="False" BorderBrush="#FF757575" Foreground="#FF121111" FontSize="21.333" MinWidth="400"/>
+                	</telerikPrimitives:RadWrapPanel>
+                	<telerikPrimitives:RadWrapPanel x:Name="CheckBoxGrid" Margin="15,0,0,10" Visibility="{Binding CheckBoxGrid}">
+                		<CheckBox  HorizontalAlignment="Left" Width="300" Margin="0,0,10,0" BorderBrush="#FFBEBEBE" Foreground="#FF131212" Style="{StaticResource CheckBoxStyle1}" Content="{Binding CheckBoxContent}" />
+                	</telerikPrimitives:RadWrapPanel>
+                	<Grid x:Name="NoteGrid" Margin="0,0,0,10" Visibility="{Binding NoteGrid}">
+                		<StackPanel Margin="0">
+                			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Note" VerticalAlignment="Top" FontSize="21.333" Foreground="#FF8D8D8D" Margin="15,0,0,0"/>
+                			<TextBox TextWrapping="Wrap" BorderBrush="#FF8D8D8D" SelectionForeground="White" FontSize="21.333"/>
+                			<TextBlock x:Name="ErrormessageTextBlock" TextWrapping="Wrap" Text="{Binding ErrorMessageTextBlock}" Foreground="#FFB7251C" FontSize="21.333" Margin="15,0,0,0"/>
+                		</StackPanel>
+                	</Grid>
+                	<Grid x:Name="CommentGrid" Visibility="{Binding CommentGrid}">
+                		<StackPanel>
+                			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding CommentTitle}" VerticalAlignment="Top" FontSize="21.333" Foreground="#FF8D8D8D" Margin="15,0,0,0"/>
+                			<telerikPrimitives:RadTextBox TextWrapping="Wrap" FontSize="21.333" Height="109" BorderBrush="#FF8D8D8D"/>
+                		</StackPanel>
+                	</Grid>
+                	<Grid x:Name="TimeGrid" Margin="0,0,0,10" Visibility="{Binding TimeGrid}">
+                		<telerikInput:RadTimePicker x:Name="TimeTimerPicker" VerticalAlignment="Stretch" EmptyContent="" Header="Select Time" Height="110" Foreground="#FF0A0A0A" BorderBrush="#FF757575" Background="#FFCACACA" Style="{StaticResource RadTimePickerStyle1}" Value="{Binding TimeValue}"/>
+                	</Grid>
+                	<Grid x:Name="DateGrid" Visibility="{Binding DateGrid}">
+                		<telerikInput:RadDatePicker VerticalAlignment="Stretch" Header="Select Date" FontSize="21.333" EmptyContent="" Foreground="#FF0C0B0B" BorderBrush="#FF757575" Style="{StaticResource RadDatePickerStyle1}" Height="110" Value="{Binding DateValue}"/>
+                	</Grid>
+                	<Grid x:Name="FileGrid" Visibility="{Binding FileGrid}">
+                		<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Attach File" VerticalAlignment="Top" Foreground="#FF7A7A7A" Margin="15,10,0,10"/>
+                		<StackPanel Margin="15,50,0,12" Orientation="Horizontal">
+                			<telerikPrimitives:RadImageButton x:Name="AttachFileImageButton" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" ButtonType="Custom" ButtonShape="Image" ImageStretch="UniformToFill" RestStateImageSource="/Assets/CameraIcon.jpg" Width="60" Foreground="#FF090404" Click="AttachFileImageButton_Click"/>
+                			<TextBlock x:Name="FileNameTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding FileNameTextBlock}" Foreground="Black"/>
+                		</StackPanel>
+                	</Grid>
+                	<Grid x:Name="LabelGrid" Visibility="{Binding LabelGrid}" Margin="15,0,0,0">
+                		<TextBlock TextWrapping="Wrap" Text="{Binding QuestionText}" VerticalAlignment="Top" Foreground="Black" FontSize="24" Margin="0,0,0,15" HorizontalAlignment="Left" FontWeight="Bold"/>
+                	</Grid>
                 </StackPanel>
             </Grid>
 		</DataTemplate>
@@ -502,18 +503,21 @@
 	<phone:PhoneApplicationPage.Foreground>
 		<StaticResource ResourceKey="PhoneForegroundBrush"/>
 	</phone:PhoneApplicationPage.Foreground>
-	<Grid x:Name="LayoutRoot" Background="White">
+	<Grid x:Name="LayoutRoot" Background="#FFE2DFDF">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
 
 		<!--ContentPanel - place additional content here-->
-		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-			<phone:LongListSelector x:Name="FormListSelector" Margin="0,80,0,0" ItemTemplate="{StaticResource FormDataTemplate}"/>
+		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0">
+			<phone:LongListSelector x:Name="FormListSelector" Margin="0,90,0,0" ItemTemplate="{StaticResource FormDataTemplate}"/>
 		</Grid>
-		<Grid x:Name="Header" Height="80" Grid.RowSpan="2" VerticalAlignment="Top" Background="#FFEBEBEB">
-			<TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Form Controls" VerticalAlignment="Center" Foreground="Black" Margin="15,0,0,0" FontFamily="Segoe WP Light" FontSize="40"/>
+		<Grid x:Name="Header" Height="80" Grid.RowSpan="2" VerticalAlignment="Top" Background="#FFF7F7F7">
+			<TextBlock x:Name="TextBlockTitle" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Form Controls" VerticalAlignment="Center" Foreground="Black" Margin="15,0,0,0" FontFamily="Segoe WP Light" FontSize="40"/>
+			<telerikPrimitives:RadImageButton x:Name="RadImageButtonLeft" Content="" HorizontalAlignment="Left" VerticalAlignment="Center" RestStateImageSource="ActiveArrowLeft.png" Foreground="Gray" Click="RadImageButtonLeft_Click"/>
+			<telerikPrimitives:RadImageButton x:Name="RadImageButtonRight" Content="" HorizontalAlignment="Right" VerticalAlignment="Center" RestStateImageSource="ActiveArrowRight.png" Foreground="Gray" Click="RadImageButtonRight_Click"/>
+			<Border BorderBrush="#FFC7C7C7" BorderThickness="0,0,0,2" Height="100" VerticalAlignment="Bottom" Margin="0,-19,0,-1"/>
 		</Grid>
 		
 	</Grid>

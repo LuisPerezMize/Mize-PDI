@@ -11,9 +11,9 @@ namespace Mize_PDI.Engine
         public Models.ExpanderModel GetExpanderData(PDILibrary.Model.sectiongroups Data, int Index, int Count)
         {
             var result = new Models.ExpanderModel();
-
+           
             result.Category = Data.label.intl[0].name.ToUpperInvariant();
-            result.TotalSubCategory = string.Format("{0}/{1}", Index, Count);
+            result.TotalSubCategory = string.Format("{0}/{1}", 0, Data.sections.Count);
 
             return result;
         }

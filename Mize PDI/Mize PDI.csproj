@@ -97,6 +97,7 @@
     <Compile Include="Downloads.xaml.cs">
       <DependentUpon>Downloads.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Engine\CommonEngine.cs" />
     <Compile Include="Engine\DownloadsEngine.cs" />
     <Compile Include="Engine\FormEngine.cs" />
     <Compile Include="Engine\SectionsEngine.cs" />
@@ -108,6 +109,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\RenderModel.cs" />
+    <Compile Include="PreviewPhoto.xaml.cs">
+      <DependentUpon>PreviewPhoto.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -135,6 +139,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PreviewPhoto.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Sections.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
@@ -149,6 +157,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\ActiveArrowLeft.png" />
+    <Content Include="Assets\ActiveArrowRight.png" />
     <Content Include="Assets\AlignmentGrid.png" />
     <Content Include="Assets\AppBar\tab_icon_downloads.png" />
     <Content Include="Assets\AppBar\tab_icon_home.png" />
@@ -158,6 +168,11 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\CameraIcon.jpg" />
+    <Content Include="Assets\cloud-download.png" />
+    <Content Include="Assets\cloud-sync.png" />
+    <Content Include="Assets\DisableArrowLeft.png" />
+    <Content Include="Assets\DisableArrowRight.png" />
     <Content Include="Assets\icon_calender%402x.png" />
     <Content Include="Assets\icon_check.png" />
     <Content Include="Assets\icon_clock%402x.png" />
@@ -264,6 +279,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="ActiveArrowLeft.png" />
+    <Resource Include="ActiveArrowRight.png" />
     <Resource Include="upload.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

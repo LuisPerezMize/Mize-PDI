@@ -7,6 +7,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Mize_PDI.Resources;
+using System.Collections.Generic;
 
 namespace Mize_PDI
 {
@@ -21,6 +22,9 @@ namespace Mize_PDI
         public static string RootURL { get; private set; }
         public static string AppName { get; private set; }
         public static Models.InsiderExpanderModel SelectedSection { get; set; }
+        public static int SelectedIndex { get; set; }
+        public static PDILibrary.Model.retrieve InspectionData { get; set; }
+        public static List<PDILibrary.Model.sections> FormID { get; set; }
 
         /// <summary>
         /// Constructor for the Application object.
